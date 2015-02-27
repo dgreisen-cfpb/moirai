@@ -5,10 +5,9 @@ bodyParser = require('body-parser')
 session = require('cookie-session')
 routes = require('./routes')
 middleware = require('./middleware')
-# cookieParser = require('cookie-parser')
-#  , "cookie-parser": "1.3.3"
-# serveStatic = require('serve-static')
-#  , "serve-static": "1.7.1"
+
+couch = require('./couch_utils')
+couch.nano_admin.db.create('moirai')
 
 app = express()
 app.use(bodyParser.json())

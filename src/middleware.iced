@@ -8,6 +8,9 @@ module.exports =
     credentials = basic_auth(req);
     if credentials and credentials.name == 'admin' and credentials.pass = conf.COUCH_PWD
         req.session.user = 'admin'
+    else if (conf.DEV)
+      req.session.user = 'admin'
+
 
     # add to the request a couch client tied to the logged in user
     req.couch = couch_utils.nano_user(req.session.user)
